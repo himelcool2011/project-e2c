@@ -2,6 +2,7 @@ package app.e2c.controller;
 
 import app.e2c.entity.Category;
 import app.e2c.entity.CategoryDomain;
+import app.e2c.service.CategoryDomainService;
 import app.e2c.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 
@@ -24,26 +25,27 @@ import java.util.List;
 public class CategoryController {
 
     private final CategoryService categoryService;
+    private final CategoryDomainService categoryDomainService;
 
     @GetMapping
     public ResponseEntity<List<Category>> getAll() {
         return ResponseEntity.ok(categoryService.findAll());
     }
 
-    @GetMapping("/domains")
-    public ResponseEntity<List<CategoryDomain>> getAllDomains() {
-        return ResponseEntity.ok(categoryService.findAllDomains());
-    }
+//    @GetMapping("/domains")
+//    public ResponseEntity<List<CategoryDomain>> getAllDomains() {
+//        return ResponseEntity.ok(categoryService.findAllDomains());
+//    }
 
     @PostMapping
     public ResponseEntity<Category> create(@RequestBody Category category) {
         return ResponseEntity.ok(categoryService.create(category));
     }
 
-    @PostMapping("/domains")
-    public ResponseEntity<CategoryDomain> createDomain(@RequestBody CategoryDomain categoryDomain) {
-        return ResponseEntity.ok(categoryService.createDomain(categoryDomain));
-    }
+//    @PostMapping("/domains")
+//    public ResponseEntity<CategoryDomain> createDomain(@RequestBody CategoryDomain categoryDomain) {
+//        return ResponseEntity.ok(categoryService.createDomain(categoryDomain));
+//    }
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> update(@PathVariable String id, @RequestBody Category category) {

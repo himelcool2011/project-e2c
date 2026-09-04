@@ -12,6 +12,13 @@ public class CategoryDomain {
     private ObjectId id;
     private String name;
 
+    public CategoryDomain(){}
+
+    public CategoryDomain(ObjectId id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public String getId() {
         return id.toHexString();
     }
